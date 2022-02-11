@@ -1,0 +1,33 @@
+<h1>All Generated Urls</h1>
+
+<style>
+.shorten {
+  max-width: 650px;
+  min-width: 650px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
+
+<strong><%= link "New Url", to: Routes.url_path(@conn, :new) %></strong>
+
+<table class="shorten">
+  <thead>
+    <tr>
+      <th>Url</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for url <- @urls do %>
+    <tr>
+      <td class="shorten"><%= url.url %></td>
+      <td>
+        <span><%= link "View Shortened", to: Routes.url_path(@conn, :show, url) %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+

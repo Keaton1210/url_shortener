@@ -1,0 +1,24 @@
+<h1>Url Data</h1>
+
+<style>
+.shorten {
+  max-width: 650px;
+  overflow-wrap: break-word;
+}
+</style>
+
+<ul>
+  <li class="shorten">
+    <strong>Original Url:</strong>
+    <%= @url.url %>
+  </li>
+</ul>
+<ul>
+  <li>
+    <strong>Shortened Url:</strong>
+    <em> http://localhost:4000/<%= @url.id %> </em>
+  </li>
+</ul>
+
+<span><%= link "Edit", to: Routes.url_path(@conn, :edit, @url) %></span> |
+<span><%= link "Back", to: Routes.url_path(@conn, :index) %></span> 
