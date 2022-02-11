@@ -8,10 +8,11 @@ defmodule UrlShortenerWeb.RedirectController do
   alias UrlShortener.Repo
 
   def redirecttolink(conn, %{"id" => id}) do
+    Repo.get(Url, id)
+      originallink = Repo.get(Url, id)
+      urlz = originallink.url
+      #urlz = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      redirect(conn, external: urlz)
 
-    originallink = Repo.get(Url, id)
-    urlz = originallink.url
-    #urlz = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    redirect(conn, external: urlz)
   end
 end
